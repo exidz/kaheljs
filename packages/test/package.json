@@ -1,6 +1,6 @@
 {
   "name": "kaheljs-test",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Comprehensive testing utilities for KahelJS applications. Includes request mocking, dependency injection testing helpers, and utilities for testing controllers, modules, and services in isolation.",
   "type": "module",
   "main": "dist/index.js",
