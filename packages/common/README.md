@@ -1,19 +1,19 @@
-# @kaheljs/common
+# kaheljs
 
 Core package for KahelJS - A zero-overhead, NestJS-style framework for Hono with functional patterns and type-safe dependency injection.
 
 ## Installation
 
 ```bash
-bun add @kaheljs/common hono
+bun add kaheljs hono
 # or
-npm install @kaheljs/common hono
+npm install kaheljs hono
 ```
 
 ## Quick Start
 
 ```typescript
-import { defineInjectable, defineController, defineModule, createApp } from "@kaheljs/common";
+import { defineInjectable, defineController, defineModule, createApp } from "kaheljs";
 
 // Define a service
 const UserService = defineInjectable(() => ({
@@ -72,10 +72,10 @@ For complete documentation, examples, and guides, see the [main KahelJS document
 
 ## Testing
 
-For testing utilities, install `@kaheljs/test`:
+For testing utilities, install `kaheljs-test`:
 
 ```bash
-bun add -d @kaheljs/test
+bun add -d kaheljs-test
 ```
 
 ## License

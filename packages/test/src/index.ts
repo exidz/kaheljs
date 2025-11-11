@@ -1,6 +1,6 @@
 import type { Hono } from "hono";
-import { DIContainer, defineModule, createApp } from "@kaheljs/common";
-import type { ModuleConfig, ModuleDefinition, InjectableToken, KahelApp } from "@kaheljs/common";
+import { DIContainer, defineModule, createApp } from "kaheljs";
+import type { ModuleConfig, ModuleDefinition, InjectableToken, KahelApp } from "kaheljs";
 
 /**
  * Testing module interface with utilities for testing

@@ -7,7 +7,7 @@
  * - Complex dependencies between modules
  */
 
-import { defineModule } from "@kaheljs/common";
+import { defineModule } from "kaheljs";
 import { databaseModule } from "../database/database.module";
 import { usersModule } from "../users/users.module";
 import { PostsService } from "./posts.service";

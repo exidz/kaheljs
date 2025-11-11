@@ -5,7 +5,7 @@
  * It exports DatabaseService so other modules can import and use it.
  */
 
-import { defineModule } from "@kaheljs/common";
+import { defineModule } from "kaheljs";
 import { DatabaseService } from "./database.service";
 
 export const databaseModule = defineModule({

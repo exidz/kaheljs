@@ -1,20 +1,20 @@
-# @kaheljs/test
+# kaheljs-test
 
 Testing utilities for KahelJS - the zero-overhead, NestJS-style framework for Hono.
 
 ## Installation
 
 ```bash
-bun add -d @kaheljs/test
+bun add -d kaheljs-test
 # or
-npm install -D @kaheljs/test
+npm install -D kaheljs-test
 ```
 
 ## Quick Start
 
 ```typescript
 import { describe, test, expect } from "bun:test";
-import { createTestingModule, createMock, request } from "@kaheljs/test";
+import { createTestingModule, createMock, request } from "kaheljs-test";
 
 describe("UsersController", () => {
   test("GET /users returns users", async () => {

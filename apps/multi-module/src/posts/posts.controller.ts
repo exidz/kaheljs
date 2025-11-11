@@ -4,7 +4,7 @@
  * Handles post-related HTTP requests
  */
 
-import { defineController } from "@kaheljs/common";
+import { defineController } from "kaheljs";
 import { PostsService } from "./posts.service";
 
 export const postsController = defineController("/posts", (r, deps) => {

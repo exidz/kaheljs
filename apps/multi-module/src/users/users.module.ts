@@ -7,7 +7,7 @@
  * - Organizing controllers and services together
  */
 
-import { defineModule } from "@kaheljs/common";
+import { defineModule } from "kaheljs";
 import { databaseModule } from "../database/database.module";
 import { UsersService } from "./users.service";
 import { usersController } from "./users.controller";

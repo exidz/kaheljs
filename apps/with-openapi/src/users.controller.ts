@@ -7,7 +7,7 @@
  * - Error responses
  */
 
-import { defineController } from "@kaheljs/common";
+import { defineController } from "kaheljs";
 import { UsersService } from "./users.service";
 
 export const usersController = defineController("/users", (r, deps) => {

@@ -13,7 +13,7 @@
  * - index.ts - Application bootstrap
  */
 
-import { defineModule, createApp } from "@kaheljs/common";
+import { defineModule, createApp } from "kaheljs";
 import { GreetingService } from "./greeting.service";
 import { greetingController } from "./greeting.controller";
 

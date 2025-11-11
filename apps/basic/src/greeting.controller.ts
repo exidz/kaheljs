@@ -8,7 +8,7 @@
  * - Returning JSON responses
  */
 
-import { defineController } from "@kaheljs/common";
+import { defineController } from "kaheljs";
 import { GreetingService } from "./greeting.service";
 
 export const greetingController = defineController("/", (r, deps) => {

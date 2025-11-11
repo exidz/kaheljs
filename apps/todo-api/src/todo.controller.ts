@@ -8,7 +8,7 @@
  * - Validation and error handling
  */
 
-import { defineController } from "@kaheljs/common";
+import { defineController } from "kaheljs";
 import { TodoService } from "./todo.service";
 import type { CreateTodoDto, UpdateTodoDto } from "./types";
 

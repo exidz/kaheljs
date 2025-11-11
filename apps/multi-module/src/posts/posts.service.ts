@@ -7,7 +7,7 @@
  * - Data enrichment
  */
 
-import { defineInjectable } from "@kaheljs/common";
+import { defineInjectable } from "kaheljs";
 import { DatabaseService } from "../database/database.service";
 import { UsersService } from "../users/users.service";
 

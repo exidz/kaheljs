@@ -8,7 +8,7 @@
  * - Integration with KahelJS
  */
 
-import { defineModule, createApp } from "@kaheljs/common";
+import { defineModule, createApp } from "kaheljs";
 import { apiReference } from "@scalar/hono-api-reference";
 import { usersController } from "./users.controller";
 import { UsersService } from "./users.service";

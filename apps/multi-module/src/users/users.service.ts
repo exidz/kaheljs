@@ -7,7 +7,7 @@
  * - Data transformation
  */
 
-import { defineInjectable } from "@kaheljs/common";
+import { defineInjectable } from "kaheljs";
 import { DatabaseService } from "../database/database.service";
 
 export const UsersService = defineInjectable(

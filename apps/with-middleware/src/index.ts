@@ -10,7 +10,7 @@
  * - Context manipulation
  */
 
-import { defineController, defineModule, createApp } from "@kaheljs/common";
+import { defineController, defineModule, createApp } from "kaheljs";
 import type { Context, Next } from "hono";
 import { loggerMiddleware } from "./middleware/logger.middleware";
 import { authMiddleware, adminOnlyMiddleware } from "./middleware/auth.middleware";

@@ -7,7 +7,7 @@
  * - Business logic separation
  */
 
-import { defineInjectable } from "@kaheljs/common";
+import { defineInjectable } from "kaheljs";
 import type { Todo, CreateTodoDto, UpdateTodoDto } from "./types";
 
 export const TodoService = defineInjectable(() => {

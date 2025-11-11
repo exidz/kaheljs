@@ -9,7 +9,7 @@
  * - Error handling
  */
 
-import { defineModule, createApp } from "@kaheljs/common";
+import { defineModule, createApp } from "kaheljs";
 import { todoController } from "./todo.controller";
 import { TodoService } from "./todo.service";
 

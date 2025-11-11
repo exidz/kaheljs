@@ -85,9 +85,9 @@ const app = createApp(appModule);
 ## Installation
 
 ```bash
-bun add @kaheljs/common hono
+bun add kaheljs hono
 # or
-npm install @kaheljs/common hono
+npm install kaheljs hono
 ```
 
 For validation (optional):
@@ -103,7 +103,7 @@ bun add zod
 
 ```typescript
 // services/user.service.ts
-import { defineInjectable } from "@kaheljs/common";
+import { defineInjectable } from "kaheljs";
 
 export const UserService = defineInjectable(() => ({
   findAll: () => {
@@ -127,7 +127,7 @@ export const UserService = defineInjectable(() => ({
 
 ```typescript
 // controllers/users.controller.ts
-import { defineController } from "@kaheljs/common";
+import { defineController } from "kaheljs";
 import { UserService } from "../services/user.service";
 
 export const usersController = defineController("/users", (r, deps) => {
@@ -155,7 +155,7 @@ export const usersController = defineController("/users", (r, deps) => {
 
 ```typescript
 // modules/users.module.ts
-import { defineModule } from "@kaheljs/common";
+import { defineModule } from "kaheljs";
 import { usersController } from "../controllers/users.controller";
 import { UserService } from "../services/user.service";
 
@@ -169,7 +169,7 @@ export const usersModule = defineModule({
 
 ```typescript
 // index.ts
-import { createApp } from "@kaheljs/common";
+import { createApp } from "kaheljs";
 import { usersModule } from "./modules/users.module";
 
 const appModule = defineModule({
@@ -200,7 +200,7 @@ Port: 3000 | Simple hello world application
 - Creating services with `defineInjectable`
 - Defining routes with `defineController`
 - Organizing with `defineModule`
-- Testing with `@kaheljs/test`
+- Testing with `kaheljs-test`
 
 ```bash
 cd apps/basic && bun run dev
@@ -502,7 +502,7 @@ const usersController = defineController("/users", (r, deps) => {
 #### Manual DI Container Usage
 
 ```typescript
-import { DIContainer } from "@kaheljs/common";
+import { DIContainer } from "kaheljs";
 
 const container = new DIContainer();
 
@@ -896,7 +896,7 @@ Test controllers with a real DI container.
 ```typescript
 // users.controller.test.ts
 import { describe, test, expect } from "bun:test";
-import { createTestingModule, createMock } from "@kaheljs/test";
+import { createTestingModule, createMock } from "kaheljs-test";
 import { usersController } from "./users.controller";
 import { UserService } from "./user.service";
 
@@ -933,7 +933,7 @@ Test the complete application.
 ```typescript
 // app.test.ts
 import { describe, test, expect, beforeAll } from "bun:test";
-import { createApp } from "@kaheljs/common";
+import { createApp } from "kaheljs";
 import { appModule } from "./app";
 
 describe("E2E: Users API", () => {
@@ -980,12 +980,12 @@ describe("E2E: Users API", () => {
 
 ### Test Utilities Reference
 
-KahelJS provides comprehensive built-in test utilities via `@kaheljs/test`:
+KahelJS provides comprehensive built-in test utilities via `kaheljs-test`:
 
 ```bash
-bun add -d @kaheljs/test
+bun add -d kaheljs-test
 # or
-npm install -D @kaheljs/test
+npm install -D kaheljs-test
 ```
 
 #### `createTestingModule(config)`
@@ -993,7 +993,7 @@ npm install -D @kaheljs/test
 Create a test module with DI container for integration tests.
 
 ```typescript
-import { createTestingModule } from "@kaheljs/test";
+import { createTestingModule } from "kaheljs-test";
 
 const testModule = createTestingModule({
   controllers: [usersController],
@@ -1015,7 +1015,7 @@ const app = testModule.createApp();
 Type-safe mock creation.
 
 ```typescript
-import { createMock } from "@kaheljs/test";
+import { createMock } from "kaheljs-test";
 
 const mockDb = createMock<ReturnType<typeof DatabaseService.factory>>({
   query: async () => [{ id: 1, name: "John" }]
@@ -1029,7 +1029,7 @@ testModule.override(DatabaseService, mockDb);
 Track function calls and mock return values.
 
 ```typescript
-import { createMockFn } from "@kaheljs/test";
+import { createMockFn } from "kaheljs-test";
 
 const mockQuery = createMockFn<(sql: string) => Promise<any[]>>();
 
@@ -1049,7 +1049,7 @@ expect(mockQuery.calls[0]).toEqual(["SELECT * FROM users"]);
 Generate test fixtures with auto-incrementing fields.
 
 ```typescript
-import { createFactory } from "@kaheljs/test";
+import { createFactory } from "kaheljs-test";
 
 const UserFactory = createFactory({
   id: 1,
@@ -1068,7 +1068,7 @@ UserFactory.reset();                                 // Reset counter
 Fluent HTTP request builder for testing.
 
 ```typescript
-import { request } from "@kaheljs/test";
+import { request } from "kaheljs-test";
 
 // Simple GET
 const res = await request(app).get("/users");
@@ -1091,7 +1091,7 @@ const res = await request(app)
 HTTP assertion helpers.
 
 ```typescript
-import { testExpect } from "@kaheljs/test";
+import { testExpect } from "kaheljs-test";
 
 testExpect.status(res, 200);                    // Assert status code
 testExpect.ok(res);                             // Assert 2xx status
@@ -1105,7 +1105,7 @@ await testExpect.json(res, { users: [...] });   // Assert JSON body
 Spy on existing functions while preserving behavior.
 
 ```typescript
-import { spyOn } from "@kaheljs/test";
+import { spyOn } from "kaheljs-test";
 
 const service = { findAll: () => [...] };
 const spy = spyOn(service, "findAll");
@@ -1120,7 +1120,7 @@ expect(spy.calls.length).toBe(1);
 Wait for async conditions.
 
 ```typescript
-import { waitFor } from "@kaheljs/test";
+import { waitFor } from "kaheljs-test";
 
 await waitFor(() => mockFn.calls.length > 0, 1000);
 ```

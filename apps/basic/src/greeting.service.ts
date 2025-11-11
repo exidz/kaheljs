@@ -7,7 +7,7 @@
  * - Pure business logic
  */
 
-import { defineInjectable } from "@kaheljs/common";
+import { defineInjectable } from "kaheljs";
 
 export const GreetingService = defineInjectable(() => ({
   /**

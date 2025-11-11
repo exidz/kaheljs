@@ -8,7 +8,7 @@
  */
 
 import { describe, test, expect, beforeAll } from "bun:test";
-import { createTestingModule, createMock } from "@kaheljs/test";
+import { createTestingModule, createMock } from "kaheljs-test";
 import { GreetingService } from "./greeting.service";
 import { greetingController } from "./greeting.controller";
 

@@ -1,5 +1,5 @@
 import { describe, test, expect } from "bun:test";
-import { defineInjectable, defineController, defineModule } from "@kaheljs/common";
+import { defineInjectable, defineController, defineModule } from "kaheljs";
 import {
   createTestingModule,
   createMock,
@@ -11,7 +11,7 @@ import {
   expect as testExpect
 } from "./index";
 
-describe("@kaheljs/test - Smoke Tests", () => {
+describe("kaheljs-test - Smoke Tests", () => {
   test("createTestingModule works", () => {
     const TestService = defineInjectable(() => ({ test: true }));
 

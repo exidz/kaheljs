@@ -6,7 +6,7 @@
  */
 
 import { Database } from "bun:sqlite";
-import { defineInjectable } from "@kaheljs/common";
+import { defineInjectable } from "kaheljs";
 
 export interface User {
   id: number;

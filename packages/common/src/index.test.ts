@@ -1,5 +1,5 @@
 /**
- * Comprehensive test suite for @kaheljs/common
+ * Comprehensive test suite for kaheljs
  *
  * These tests verify all core functionality of the framework including:
  * - Service definition with defineInjectable
@@ -18,7 +18,7 @@ import {
   DIContainer
 } from "./index";
 
-describe("@kaheljs/common - Core Framework Tests", () => {
+describe("kaheljs - Core Framework Tests", () => {
   /**
    * Test: defineInjectable creates a functional service
    *

@@ -23,7 +23,7 @@
  * - Clean separation of concerns
  */
 
-import { defineModule, createApp } from "@kaheljs/common";
+import { defineModule, createApp } from "kaheljs";
 import { usersModule } from "./users/users.module";
 import { postsModule } from "./posts/posts.module";
 

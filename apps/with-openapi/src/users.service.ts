@@ -6,7 +6,7 @@
  * - Type-safe data handling
  */
 
-import { defineInjectable } from "@kaheljs/common";
+import { defineInjectable } from "kaheljs";
 
 export interface User {
   id: number;
