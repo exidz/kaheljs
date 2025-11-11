@@ -8,13 +8,13 @@ import { defineController } from "kaheljs";
 import { UsersService } from "./users.service";
 
 export const usersController = defineController("/users", (r, deps) => {
+  const users = deps.get(UsersService);
+
   r.get("/", (c) => {
-    const users = deps.get(UsersService);
     return c.json({ users: users.findAll() });
   });
 
   r.get("/:id", (c) => {
-    const users = deps.get(UsersService);
     const id = Number(c.req.param("id"));
 
     if (isNaN(id)) {
@@ -31,8 +31,6 @@ export const usersController = defineController("/users", (r, deps) => {
   });
 
   r.post("/", async (c) => {
-    const users = deps.get(UsersService);
-
     try {
       const body = await c.req.json<{ name: string; email: string }>();
 

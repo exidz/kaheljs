@@ -12,12 +12,13 @@ import { defineController } from "kaheljs";
 import { GreetingService } from "./greeting.service";
 
 export const greetingController = defineController("/", (r, deps) => {
+  const greeting = deps.get(GreetingService);
+
   /**
    * GET /
    * Returns a default greeting with app info
    */
   r.get("/", (c) => {
-    const greeting = deps.get(GreetingService);
     return c.json({
       message: greeting.getGreeting(),
       info: greeting.getInfo()
@@ -29,7 +30,6 @@ export const greetingController = defineController("/", (r, deps) => {
    * Returns a personalized greeting
    */
   r.get("/greet/:name", (c) => {
-    const greeting = deps.get(GreetingService);
     const name = c.req.param("name");
     return c.json({
       message: greeting.getGreeting(name)

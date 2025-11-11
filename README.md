@@ -1281,16 +1281,6 @@ const app = createApp(module);
 app.request("/users");  // Pure Hono performance!
 ```
 
-### Benchmarks
-
-KahelJS has **identical performance to pure Hono** because it compiles down to pure Hono:
-
-```
-Pure Hono:       45,000 req/sec
-KahelJS:         45,000 req/sec  ← Same!
-NestJS:          12,000 req/sec  ← 3.75x slower
-```
-
 ### Performance Tips
 
 1. **Use singleton lifetime (default)** - Services instantiated once

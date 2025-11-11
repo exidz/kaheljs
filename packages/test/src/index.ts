@@ -82,22 +82,53 @@ export interface TestingModule {
  * @public
  */
 export function createTestingModule(config: ModuleConfig): TestingModule {
-  const module = defineModule(config);
+  // Store the config but don't create the module yet
+  // This allows overrides to be applied before controller instantiation
+  let module: ModuleDefinition | null = null;
+
+  const getOrCreateModule = () => {
+    if (!module) {
+      module = defineModule(config);
+    }
+    return module;
+  };
 
   return {
-    module,
-    container: module.container,
+    get module() {
+      return getOrCreateModule();
+    },
+
+    get container() {
+      return getOrCreateModule().container;
+    },
 
     get<T>(token: InjectableToken<T>): T {
-      return module.container.get(token);
+      return getOrCreateModule().container.get(token);
     },
 
     override<T, TMock extends T = T>(token: InjectableToken<T>, value: TMock): void {
-      module.container.registerValue(token, value);
+      // Extract the actual token (handle Injectable objects)
+      const actualToken = typeof token === 'object' && token !== null && 'token' in token
+        ? (token as any).token
+        : token;
+
+      // If module hasn't been created yet, modify the config
+      if (!module) {
+        // Add override to providers (will be processed after original providers)
+        config.providers = config.providers || [];
+        config.providers.push({
+          provide: actualToken as any,
+          useValue: value
+        });
+      } else {
+        // Module already created, just override in the container
+        // This won't affect already-instantiated controllers!
+        module.container.registerValue(actualToken, value);
+      }
     },
 
     createApp() {
-      return createApp(module);
+      return createApp(getOrCreateModule());
     }
   };
 }

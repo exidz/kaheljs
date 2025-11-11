@@ -281,14 +281,37 @@ export function defineController(
 
   // Create default instance for direct use (lazy evaluation for performance)
   // This allows the controller to be used without explicit module system
-  const defaultContainer = new DIContainer();
-  const defaultDefinition = factory(defaultContainer);
+  // IMPORTANT: Use lazy getters to avoid calling setup() with empty container
+  // until the controller is actually used standalone (without a module)
+  let defaultDefinition: InternalControllerDefinition | null = null;
+
+  const getDefaultDefinition = () => {
+    if (!defaultDefinition) {
+      const defaultContainer = new DIContainer();
+      defaultDefinition = factory(defaultContainer);
+    }
+    return defaultDefinition;
+  };
 
   // Merge factory function with default definition properties
   const controller = factory as ControllerFactory;
-  controller.prefix = defaultDefinition.prefix;
-  // Cast to ControllerApp to hide use() method from external API
-  controller.app = defaultDefinition.app as ControllerApp;
+
+  // Use getters to lazily create the default definition
+  Object.defineProperty(controller, 'prefix', {
+    get() {
+      return prefix; // Use the prefix from closure instead of default definition
+    },
+    enumerable: true,
+    configurable: true,
+  });
+
+  Object.defineProperty(controller, 'app', {
+    get() {
+      return getDefaultDefinition().app as ControllerApp;
+    },
+    enumerable: true,
+    configurable: true,
+  });
 
   return controller;
 }
