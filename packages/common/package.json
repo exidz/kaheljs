@@ -1,6 +1,6 @@
 {
   "name": "kaheljs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight, type-safe framework for building scalable HTTP applications with Hono. Features dependency injection, modular architecture, controller-based routing, and zero-overhead abstractions.",
   "type": "module",
   "main": "dist/index.js",
