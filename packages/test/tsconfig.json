@@ -1,0 +1,11 @@
+{
+  "extends": "@kaheljs/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+      "moduleResolution": "node",
+    "module": "esnext"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

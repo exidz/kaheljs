@@ -1,0 +1,62 @@
+{
+  "name": "@kaheljs/common",
+  "version": "0.1.0",
+  "description": "A lightweight, type-safe framework for building scalable HTTP applications with Hono. Features dependency injection, modular architecture, controller-based routing, and zero-overhead abstractions.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node --format esm && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "dev": "bun --watch src/index.ts",
+    "check-types": "tsc --noEmit",
+    "test": "bun test"
+  },
+  "keywords": [
+    "hono",
+    "framework",
+    "dependency-injection",
+    "http",
+    "router",
+    "controller",
+    "module",
+    "functional",
+    "typescript",
+    "decorators",
+    "ioc",
+    "web-framework"
+  ],
+  "homepage": "https://github.com/exidz/kaheljs#readme",
+  "bugs": {
+    "url": "https://github.com/exidz/kaheljs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exidz/kaheljs.git",
+    "directory": "packages/common"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "hono": "^4.10.4"
+  },
+  "devDependencies": {
+    "@kaheljs/typescript-config": "workspace:*",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

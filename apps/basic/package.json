@@ -1,0 +1,21 @@
+{
+  "name": "basic-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "test": "bun test",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@kaheljs/common": "workspace:*",
+    "hono": "^4.10.4"
+  },
+  "devDependencies": {
+    "@kaheljs/test": "workspace:*",
+    "@kaheljs/typescript-config": "workspace:*",
+    "@types/bun": "latest"
+  }
+}

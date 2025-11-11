@@ -1,0 +1,57 @@
+{
+  "name": "@kaheljs/test",
+  "version": "0.1.0",
+  "description": "Comprehensive testing utilities for KahelJS applications. Includes request mocking, dependency injection testing helpers, and utilities for testing controllers, modules, and services in isolation.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node --format esm && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "dev": "bun --watch src/index.ts",
+    "check-types": "tsc --noEmit",
+    "test": "bun test"
+  },
+  "keywords": [
+    "kaheljs",
+    "testing",
+    "hono",
+    "mocking",
+    "test-utilities"
+  ],
+  "homepage": "https://github.com/exidz/kaheljs#readme",
+  "bugs": {
+    "url": "https://github.com/exidz/kaheljs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exidz/kaheljs.git",
+    "directory": "packages/test"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@kaheljs/common": "workspace:*"
+  },
+  "devDependencies": {
+    "@kaheljs/typescript-config": "workspace:*",
+    "@types/bun": "latest",
+    "hono": "^4.10.4"
+  },
+  "peerDependencies": {
+    "hono": "^4",
+    "typescript": "^5"
+  }
+}
