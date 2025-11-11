@@ -2,7 +2,11 @@
   "extends": "@kaheljs/typescript-config/base.json",
   "compilerOptions": {
     "moduleResolution": "node",
-    "module": "esnext"
+    "module": "esnext",
+    "composite": true,
+    "incremental": true,
+    "outDir": "dist",
+    "rootDir": "src"
   },
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test.ts", "src/**/*.spec.ts", "node_modules", "dist"]

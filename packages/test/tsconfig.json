@@ -3,9 +3,14 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
-      "moduleResolution": "node",
-    "module": "esnext"
+    "moduleResolution": "node",
+    "module": "esnext",
+    "composite": true,
+    "incremental": true
   },
   "include": ["src"],
-  "exclude": ["src/**/*.test.ts", "src/**/*.spec.ts", "node_modules", "dist"]
+  "exclude": ["src/**/*.test.ts", "src/**/*.spec.ts", "node_modules", "dist"],
+  "references": [
+    { "path": "../common" }
+  ]
 }
