@@ -3,5 +3,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "module": "esnext"
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.spec.ts", "node_modules", "dist"]
 }
